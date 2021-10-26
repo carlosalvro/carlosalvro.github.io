@@ -1,0 +1,211 @@
+:root {
+  /* colors */
+  /* theme1 */
+  --th1background: hsl(268, 75%, 9%);
+  --th1keypad: hsl(268, 71%, 12%);
+  --th1screen: hsl(268, 71%, 12%);
+  --th1delbutton: hsl(281, 89%, 26%);
+  --th1delbuttonshadow: hsl(285, 91%, 52%);
+  --th1buttoneq: hsl(176, 100%, 44%);
+  --th1buttoneqshadow: hsl(177, 92%, 70%);
+  --th1button: hsl(268, 47%, 21%);
+  --th1buttonshadow: hsl(290, 70%, 36%);
+  --th1fontcolordark: hsl(52, 100%, 62%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
+  background-color: var(--th1background);
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calculator {
+  width: 40%;
+  min-width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calculator section {
+  margin: 10px 0;
+}
+.header-section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  text-align: center;
+  color: var(--th1fontcolordark);
+}
+.header-section h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 3.2rem;
+}
+.header-themes {
+  display: grid;
+  grid-template-areas: 
+    "null numbers"
+    "themes selector";
+  font-size: 1.2rem;
+  line-height: 13px;
+  letter-spacing: 0.075em;
+}
+.header-themes span {
+  grid-area: themes;
+  align-self: center;
+  margin: 0 5px;
+}
+.header-themes--numbers {
+  display: flex;
+  flex-direction: row;
+  grid-area: numbers;
+  justify-content: space-around;
+}
+.header-themes--selector {
+  grid-area: selector;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  min-width: 60px;
+  border-radius: 50px;
+  height: 26px;
+  background-color: var(--th1keypad);
+  position: relative;
+}
+.header-themes--selector input {
+  display: none;
+}
+.header-themes--selector .circle {
+  width: 33.3%;
+  height: 46px;
+  cursor: pointer;
+  z-index: 5;
+}
+.header-themes--selector .active {
+  position: absolute;
+  background-color: var(--th1buttoneq);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: all 1s ease;
+  z-index: 3;
+  left: 3px;
+  top: 4px;
+}
+#check-1:checked ~ .active {
+  transform: translatex(0px);
+}
+#check-2:checked ~ .active {
+  transform: translatex(18px);
+}
+#check-3:checked ~ .active {
+  transform: translatex(36px);
+}
+
+
+
+.screen-section {
+  width: 100%;
+  background-color: var(--th1screen);
+  border-radius: 7px;
+  text-align: right;
+}
+.screen-section h2 {
+  font-size: 4.8rem;
+  padding: 29px 29px 20px;
+  margin: 0;
+  color: var(--th1fontcolordark);
+}
+.buttons-section {
+  width: 100%;
+  background-color: var(--th1keypad);
+  border-radius: 7px;
+  padding: 33px;
+  
+}
+.buttons-nums {
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+  grid-gap: 25px;
+}
+.buttons-section button {
+  grid-auto-flow: dense;
+  border-radius: 10px;
+  border: hidden;
+  outline: none;
+  text-align: center;
+  font-weight: 700;
+  font-family: 'Spartan', sans-serif;
+  padding-top: 6px;
+}
+.button-number {
+  font-size: 3.4rem;
+  color: var(--th1fontcolordark);
+  background-color: var(--th1button);
+  box-shadow: 0px 4px 0px var(--th1buttonshadow);
+}
+.button-number:active {
+  background-color: var(--th1buttonshadow);
+}
+.button-delete {
+  font-size: 2.0rem;
+  color: white;
+  background-color: var(--th1delbutton);
+  box-shadow: 0px 4px 0px var(--th1delbuttonshadow);
+  padding-top: 6px;
+}
+.button-delete:active {
+  background-color: var(--th1delbuttonshadow);
+}
+.buttons-equals {
+  margin-top: 25px;
+  display: grid;
+  grid-template: 1fr / repeat(2, 1fr);
+  grid-gap: 25px;
+  height: 46px;
+}
+.button-reset {
+  font-size: 1.7rem;
+  color: white;
+  background-color: var(--th1delbutton);
+  box-shadow: 0px 4px 0px var(--th1delbuttonshadow);
+  padding-top: 6px;
+}
+.button-reset:active {
+  background-color: var(--th1delbuttonshadow);
+}
+.button-equal {
+  color: hsl(198, 20%, 13%);
+  background-color: var(--th1buttoneq);
+  box-shadow: 0px 4px 0px var(--th1buttoneqshadow);
+  font-size: 2.0rem;
+}
+.button-equal:active {
+  background-color: var(--th1buttoneqshadow);
+}
+.attribution {
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 8px;
+}
+.attribution a {
+  color: var(--th1buttoneq);
+  text-decoration: none;
+}
